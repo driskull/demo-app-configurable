@@ -3,13 +3,21 @@ define([
     "dojo/_base/declare",
     "dojo/_base/lang",
     "esri/arcgis/utils",
-    "dojo/on"
+    "dojo/on",
+    "dojo/dom",
+    "dojo/dom-style",
+    "esri/dijit/HomeButton",
+    "esri/dijit/LocateButton",
+    "dojo/_base/Color"
 ], function (
     ready,
     declare,
     lang,
     arcgisUtils,
-    on
+    on,
+    dom, domStyle,
+    HomeButton, LocateButton,
+    Color
 ) {
     return declare("", null, {
         config: {},
@@ -27,6 +35,38 @@ define([
         },
         _mapLoaded: function () {
             // Map is ready
+
+            
+            // title
+            this.config.title = this.config.title || this.config.itemInfo.item.title;
+            var titleNode = dom.byId('title');
+            // color
+            if(this.config.titleBackgroundColor){
+                var c = Color.fromHex(this.config.titleBackgroundColor);
+                // set alpha
+                c.a = 0.8;
+                var cString = c.toCss(true); 
+                domStyle.set(titleNode, 'background', cString);  
+            }
+            titleNode.innerHTML = '<div>' + this.config.title + '</div>';
+            
+            
+            // locate button
+            if(this.config.enableLocateButton){
+                var locateButton = new LocateButton({
+                  map: this.map
+                }, "LocateButton");
+                locateButton.startup();   
+            }
+            
+            // home button
+            if(this.config.enableHomeButton){
+                var homeButton = new HomeButton({
+                  map: this.map
+                }, "HomeButton");
+                homeButton.startup();   
+            }
+            
         },
         //create a map based on the input web map id
         _createWebMap: function (itemInfo) {

@@ -16,3 +16,30 @@ html,body {
 .esriRTL label {
 /*Example of a rule that will be applied if the app is viewed in a browser with a RTL locale like Hebrew or Arabic.*/
 }
+
+.HomeButton{
+    margin-bottom: 10px;
+}
+
+.mapButtons{
+    position:absolute; z-index:3; top:95px; left:20px;
+}
+
+.map-title{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    color: #fff;
+    font-weight: bold;
+    font-size: 32px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.8);
+    text-align: center;
+}
+
+.map-title div{
+    padding: 20px 0;
+    margin-bottom: 36px;
+}

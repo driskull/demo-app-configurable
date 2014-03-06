@@ -1,28 +1,45 @@
 {
-    "configurationSettings": [{
-        "category": "<b>Choose template theme</b>",
-        "fields": [{
-            "placeHolder": "Defaults to map owner",
-            "label": "Owner Text:",
-            "fieldName": "owner",
-            "type": "string",
-            "tooltip": "Defaults to map owner"
-        }, {
-            "type": "string",
-            "fieldName": "theme",
-            "tooltip": "Color theme to use",
-            "label": "Color Scheme:",
-            "options": [{
-                "label": "Chrome",
-                "value": "chrome"
-            }, {
-                "label": "Seaside",
-                "value": "seaside"
-            }, {
-                "label": "Pavement",
-                "value": "pavement"
-            }]
-        }]
-    }],
-    "values": {}
+   "configurationSettings":[
+      {
+         "category":"<b>Map</b>",
+         "fields":[
+            {
+               "type":"webmap",
+               "label":"Select a map"
+            }
+         ]
+      },
+      {
+         "category":"<b>Options</b>",
+         "fields":[
+            {
+               "type":"string",
+               "fieldName":"title",
+               "label":"Title",
+               "tooltip":"Title"
+            },
+            {
+               "type":"boolean",
+               "fieldName":"enableHomeButton",
+               "label":"Enable Home Button",
+               "tooltip":"Enable Home Button"
+            },
+            {
+               "type":"boolean",
+               "fieldName":"enableLocateButton",
+               "label":"Enable Locate Button",
+               "tooltip":"Enable Locate Button"
+            },
+            {
+               "type":"color",
+               "label":"Title Background Color",
+               "fieldName":"titleBackgroundColor"
+            }
+         ]
+      }
+   ],
+   "values":{
+      "enableHomeButton":true,
+      "enableLocateButton":true
+   }
 }
